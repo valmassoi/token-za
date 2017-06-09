@@ -37,6 +37,7 @@ function onCommand(session, command) {
   const content = command.content.value || command.body.toLowerCase()
   //HACK
   const step = session.get('step') || 0
+  console.log('step', step);
   if(step === 'set-name') {
     setName(session, content)
   }
@@ -60,6 +61,7 @@ function onCommand(session, command) {
       getPrice(session)
       break
     case 'name':
+      session.set('step', 'set-name')
       askName(session)
       break
     case 'next-location':
@@ -74,21 +76,25 @@ function onCommand(session, command) {
     case 'large-pep':
       session.set('item', 'Large Pepperoni')
       session.set('itemCode', '3716')
+      session.set('step', 'set-name')
       askName(session)
       break
     case 'med-pep':
       session.set('item', 'Med Pepperoni')
       session.set('itemCode', '3716')
+      session.set('step', 'set-name')
       askName(session)
       break
     case 'large-cheese':
       session.set('item', 'Large Cheese')
       session.set('itemCode', '3716')
+      session.set('step', 'set-name')
       askName(session)
       break
     case 'med-cheese':
       session.set('item', 'Med Cheese')
       session.set('itemCode', '3716')
+      session.set('step', 'set-name')
       askName(session)
       break
     }
@@ -225,7 +231,6 @@ function askName(session) {
       showKeyboard: true
     })
   )
-  session.set('step', 'set-name')
 }
 function askEmail(session) { //TODO DRY
   session.set('step', 'set-email')
@@ -242,6 +247,7 @@ function setName(session, name) {
   if(splitName.length === 2) {
     session.set('firstName', splitName[0])
     session.set('lastName', splitName[1])
+    session.set('step', 'set-email')
     askEmail(session)
   } else {
     session.reply(
