@@ -246,7 +246,7 @@ function setName(session, name) {
   } else {
     session.reply(
       SOFA.Message({
-        body: "Try again (two words only)",
+        body: "Try name again (two words only)",
         showKeyboard: true
       })
     )
