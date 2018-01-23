@@ -1,0 +1,46 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.10.1
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  'npm:brace-expansion:20170302':
+    - fstream > rimraf > glob > minimatch > brace-expansion:
+        reason: None given
+        expires: '2018-02-22T17:38:01.895Z'
+    - fstream-ignore > minimatch > brace-expansion:
+        reason: None given
+        expires: '2018-02-22T17:38:01.895Z'
+    - fstream-ignore > fstream > rimraf > glob > minimatch > brace-expansion:
+        reason: None given
+        expires: '2018-02-22T17:38:01.895Z'
+    - node-pre-gyp > rimraf > glob > minimatch > brace-expansion:
+        reason: None given
+        expires: '2018-02-22T17:38:01.895Z'
+    - node-pre-gyp > tar > fstream > rimraf > glob > minimatch > brace-expansion:
+        reason: None given
+        expires: '2018-02-22T17:38:01.896Z'
+    - node-pre-gyp > tar-pack > rimraf > glob > minimatch > brace-expansion:
+        reason: None given
+        expires: '2018-02-22T17:38:01.896Z'
+    - node-pre-gyp > tar-pack > fstream > rimraf > glob > minimatch > brace-expansion:
+        reason: None given
+        expires: '2018-02-22T17:38:01.896Z'
+    - node-pre-gyp > tar-pack > fstream-ignore > minimatch > brace-expansion:
+        reason: None given
+        expires: '2018-02-22T17:38:01.896Z'
+    - node-pre-gyp > tar-pack > fstream-ignore > fstream > rimraf > glob > minimatch > brace-expansion:
+        reason: None given
+        expires: '2018-02-22T17:38:01.896Z'
+    - node-pre-gyp > tar-pack > tar > fstream > rimraf > glob > minimatch > brace-expansion:
+        reason: None given
+        expires: '2018-02-22T17:38:01.896Z'
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - node-pre-gyp > tar-pack > debug:
+        patched: '2018-01-23T17:35:59.859Z'
+  'npm:ms:20170412':
+    - node-pre-gyp > tar-pack > debug > ms:
+        patched: '2018-01-23T17:35:59.859Z'
+  'npm:tough-cookie:20170905':
+    - node-pre-gyp > request > tough-cookie:
+        patched: '2018-01-23T17:35:59.859Z'
